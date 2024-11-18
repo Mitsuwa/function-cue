@@ -117,6 +117,9 @@ See the currently supported [options](docs/EXPORT_OPTIONS.md)
 
 ## Installing
 
+There are two different versions that are built, with the `cue.mod` and without
+
+Without cue.mod, if you do not want schema validation, this is not needed
 ```yaml
 apiVersion: pkg.crossplane.io/v1beta1
 kind: Function
@@ -124,6 +127,16 @@ metadata:
   name: function-cue
 spec:
   package: mitsuwa/function-cue:v0.1.2
+```
+
+With cue.mod, the cue.mod is its own layer so it should get cached, currently it is `~164M`
+```yaml
+apiVersion: pkg.crossplane.io/v1beta1
+kind: Function
+metadata:
+  name: function-cue
+spec:
+  package: mitsuwa/function-cuemod:v0.1.2
 ```
 
 ## Importable Packages
